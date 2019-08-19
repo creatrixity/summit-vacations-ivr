@@ -1,11 +1,9 @@
 'use strict';
 
-const Config = use('Config')
-
-const { accountSid, accountToken } = Config.get('twilio')
+const { accountSid, accountToken } = require('../../config/twilio')
 
 class TwilioService {
-  async sendTextMessage (from, to, body) {
+  static async sendTextMessage (from, to, body) {
     try {
       const client = require('twilio')(accountSid, accountToken)
       await client

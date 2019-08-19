@@ -3,12 +3,11 @@
 const twilio = require('twilio')
 const { VoiceResponse, MessagingResponse } = twilio.twiml
 
-const Config = use('Config')
-const TwilioService = use('TwilioService')
+const TwilioService = require('../Services/TwilioService')
 
-const dialogConfig = Config.get('dialog')
-const { phoneOrigin } = Config.get('twilio')
-const { routes } = Config.get('routeMap')
+const dialogConfig = require('../../config/dialog')
+const { phoneOrigin } = require('../../config/twilio')
+const { routes } = require('../../config/routeMap')
 
 class IvrRepository {
   /**
@@ -208,6 +207,7 @@ class IvrRepository {
    */
   async manageExcursionSuggestionsPrompts(menuItem, extraParams) {
     menuItem = parseInt(menuItem);
+    console.log({ menuItem })
 
     if (menuItem >= 3) {
       return this.handleExcursionSuggestions()
@@ -218,8 +218,8 @@ class IvrRepository {
     if (menuItem === 2) {
       voiceResp.say(`We are connecting you to our customer service helpline`)
       voiceResp.dial(dialogConfig.assistanceHelpline)
-    } else {
       // Send a message
+    } else {
       voiceResp.say(`We have sent an SMS containing helpful info to your phone.`)
 
       if ('callerPhone' in extraParams && extraParams.callerPhone) {

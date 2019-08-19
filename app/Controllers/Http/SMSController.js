@@ -1,6 +1,6 @@
 'use strict';
 
-const SMSRepository = use('App/Repositories/IvrRepository')
+const SMSRepository = use('App/Repositories/SMSRepository')
 
 /**
  * Routes various IVR actions to handlers

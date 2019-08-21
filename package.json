@@ -21,7 +21,6 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "dotenv": "^6.2.0",
     "netlify-lambda": "^1.6.0",
     "twilio": "^3.33.0"
   },

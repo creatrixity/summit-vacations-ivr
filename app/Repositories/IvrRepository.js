@@ -207,7 +207,6 @@ class IvrRepository {
    */
   async manageExcursionSuggestionsPrompts(menuItem, extraParams) {
     menuItem = parseInt(menuItem);
-    console.log({ menuItem })
 
     if (menuItem >= 3) {
       return this.handleExcursionSuggestions()

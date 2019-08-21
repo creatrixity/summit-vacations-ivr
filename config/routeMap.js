@@ -10,11 +10,11 @@ module.exports = {
   |
   */
   routes: {
-    ivr: '/api/v1/ivr',
-    ivrMenu: '/api/v1/ivr/menu',
-    ivrSuggestions: '/api/v1/ivr/suggestions',
-    ivrSuggestionsTransportation: '/api/v1/ivr/suggestions/transportation',
-    ivrSuggestionsExcursions: '/api/v1/ivr/suggestions/excursions',
+    ivr: 'ivr',
+    ivrMenu: 'menu',
+    ivrSuggestions: 'suggestions',
+    ivrSuggestionsTransportation: 'transportation',
+    ivrSuggestionsExcursions: 'excursions',
     ivrMessagesTransportation: '/messages/transportation',
     ivrMessagesAssistanceAddress: '/messages/assistance/address',
     ivrMessagesAssistanceIssue: '/messages/assistance/issue',

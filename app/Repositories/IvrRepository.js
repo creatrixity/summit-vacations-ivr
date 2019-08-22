@@ -9,6 +9,8 @@ const dialogConfig = require('../../config/dialog')
 const { phoneOrigin } = require('../../config/twilio')
 const { routes } = require('../../config/routeMap')
 
+const endpointPrefix = './netlify/'
+
 class IvrRepository {
   /**
    * Shows a welcome greeting
@@ -18,7 +20,7 @@ class IvrRepository {
     const voiceResp = new VoiceResponse();
 
     const gather = voiceResp.gather({
-      action: routes.ivrMenu,
+      action: `${endpointPrefix}/${routes.ivrMenu}`,
       numDigits: '1',
       method: 'POST'
     })
@@ -58,7 +60,7 @@ class IvrRepository {
     voiceResp.say(dialogConfig.arrivalInfoGreeting)
 
     const gather = voiceResp.gather({
-      action: routes.ivr,
+      action: `${endpointPrefix}/${routes.ivr}`,
       numDigits: '1',
       method: 'POST'
     })
@@ -87,7 +89,7 @@ class IvrRepository {
     voiceResp.say(dialogConfig.weatherInfoGreeting)
 
     const gather = voiceResp.gather({
-      action: routes.ivr,
+      action: `${endpointPrefix}/${routes.ivr}`,
       numDigits: '1',
       method: 'POST'
     })
@@ -105,7 +107,7 @@ class IvrRepository {
     const voiceResp = new VoiceResponse();
 
     const gather = voiceResp.gather({
-      action: routes.ivrSuggestions,
+      action: `${endpointPrefix}/${routes.ivrSuggestions}`,
       numDigits: '1',
       method: 'POST'
     })
@@ -142,7 +144,7 @@ class IvrRepository {
   handleTransportationSuggestions() {
     const voiceResp = new VoiceResponse()
     const gather = voiceResp.gather({
-      action: routes.ivrSuggestionsTransportation,
+      action: `${endpointPrefix}/${routes.ivrSuggestionsTransportation}`,
       numDigits: '1',
       method: 'POST'
     })
@@ -173,7 +175,7 @@ class IvrRepository {
       voiceResp.say(`Please leave a message containing your details after the beep - you can end the message by pressing any button.`)
       voiceResp.record({
         maxLength: 120,
-        action: routes.ivrMessagesTransportation,
+        action: `${endpointPrefix}/${routes.ivrMessagesTransportation}`,
         transcribe: true
       })
       voiceResp.say(`Our support experts will be in touch with you shortly!`)
@@ -189,7 +191,7 @@ class IvrRepository {
   handleExcursionSuggestions() {
     const voiceResp = new VoiceResponse()
     const gather = voiceResp.gather({
-      action: routes.ivrSuggestionsExcursions,
+      action: `${endpointPrefix}/${routes.ivrSuggestionsExcursions}`,
       numDigits: '1',
       method: 'POST'
     })
@@ -242,7 +244,7 @@ class IvrRepository {
     const voiceResp = new VoiceResponse();
 
     const gather = voiceResp.gather({
-      action: routes.ivrAssistance,
+      action: `${endpointPrefix}/${routes.ivrAssistance}`,
       numDigits: '1',
       method: 'POST'
     })
@@ -292,7 +294,7 @@ class IvrRepository {
     twimlResp.say(dialogConfig.nonUrgentAssistancePrompt)
     twimlResp.record({
       maxLength: 120,
-      action: routes.ivrMessagesAssistanceAddress,
+      action: `${endpointPrefix}/${routes.ivrMessagesAssistanceAddress}`,
       transcribe: true
     })
 
@@ -300,7 +302,7 @@ class IvrRepository {
     twimlResp.say(`Got it! And what is the issue you're experiencing?`)
     twimlResp.record({
       maxLength: 120,
-      action: routes.ivrMessagesAssistanceIssue,
+      action: `${endpointPrefix}/${routes.ivrMessagesAssistanceIssue}`,
       transcribe: true
     })
     twimlResp.say(`We'll contact the phone number on file as soon as possible`)

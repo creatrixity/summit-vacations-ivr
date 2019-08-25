@@ -3,12 +3,11 @@
 const twilio = require('twilio')
 const { VoiceResponse, MessagingResponse } = twilio.twiml
 
-const Config = use('Config')
-const TwilioService = use('TwilioService')
+const TwilioService = require('../Services/TwilioService')
 
-const dialogConfig = Config.get('dialog')
-const { phoneOrigin } = Config.get('twilio')
-const { routes } = Config.get('routeMap')
+const dialogConfig = require('../../config/dialog')
+const { phoneOrigin } = require('../../config/twilio')
+const { routes } = require('../../config/routeMap')
 
 class SMSRepository {
   /**
@@ -20,7 +19,8 @@ class SMSRepository {
     const defaultResponse = 'Reply with the any of these for more: weather info, activity suggestions'
     const keywordHandlers = {
       'weather': this.sendWeatherInfoResponse,
-      'activity': this.sendActivitySuggestionsResponse
+      'activity': this.sendActivitySuggestionsResponse,
+      'assistance': this.sendActivitySuggestionsResponse
     }
     let validKeyword = ''
 

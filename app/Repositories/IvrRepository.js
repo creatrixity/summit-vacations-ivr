@@ -44,7 +44,7 @@ class IvrRepository {
       '4': this.showAssistanceInfo
     }
 
-    return optionsHandlers[menuItem] ?
+    return menuItem in optionsHandlers ?
             optionsHandlers[menuItem](extraParams):
             this.showWelcomeGreeting()
   }
@@ -132,7 +132,7 @@ class IvrRepository {
       '3': this.handleExcursionSuggestions
     }
 
-    return optionsHandlers[menuItem] ?
+    return menuItem in optionsHandlers ?
             optionsHandlers[menuItem](extraParams):
             this.showActivitySuggestionsGreeting()
   }
@@ -267,7 +267,7 @@ class IvrRepository {
       '2': this.handleNonUrgentAssistanceRequest,
     }
 
-    return options[assistanceOption] ?
+    return assistanceOption in options ?
             options[assistanceOption]():
             this.showAssistanceInfo()
   }

@@ -5,9 +5,9 @@ const IvrRepository = require('../app/Repositories/IvrRepository')
 exports.handler = (event, context, callback) => {
   const { Digits, To } = JSON.parse(event.body)
   const ivrRepo = new IvrRepository()
-  const body = ivrRepo.manageExcursionSuggestionsPrompts(Digits, { callerPhone: To })
-
-  console.log(body)
+  const body = JSON.stringify(
+    ivrRepo.manageExcursionSuggestionsPrompts(Digits, { callerPhone: To })
+  )
 
   return callback(null, {
     statusCode: 200,

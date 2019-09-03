@@ -25,7 +25,7 @@ class IvrRepository {
       method: 'POST'
     })
 
-    gather.say(dialogConfig.welcomeGreeting, { loop: 3 })
+    gather.say(dialogConfig.welcomeGreeting, { loop: 1 })
 
     return voiceResp.toString()
   }

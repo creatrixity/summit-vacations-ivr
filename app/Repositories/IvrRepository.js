@@ -9,7 +9,7 @@ const dialogConfig = require('../../config/dialog')
 const { phoneOrigin } = require('../../config/twilio')
 const { routes } = require('../../config/routeMap')
 
-const endpointPrefix = '/functions'
+const endpointPrefix = '/.netlify/functions'
 
 class IvrRepository {
   /**

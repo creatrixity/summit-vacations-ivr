@@ -6,7 +6,7 @@ exports.handler = (event, context, callback) => {
   const { Digits, To } = JSON.parse(event.body)
 
   const ivrRepo = new IvrRepository()
-  const body = ivrRepo.navigateMainMenu(Digits, { callerPhone: To })
+  const body = ivrRepo.navigateMainMenu(parseInt(Digits), { callerPhone: To })
 
   return callback(null, {
     statusCode: 200,

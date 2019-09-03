@@ -3,7 +3,7 @@
 const IvrRepository = require('../app/Repositories/IvrRepository')
 
 exports.handler = (event, context, callback) => {
-  const { Digits, To } = JSON.parse(event.body)
+  const { Digits, To } = event.queryStringParameters
 
   const ivrRepo = new IvrRepository()
   const body = ivrRepo.navigateMainMenu(parseInt(Digits), { callerPhone: To })

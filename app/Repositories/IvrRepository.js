@@ -37,6 +37,7 @@ class IvrRepository {
    * @return {Function}          callback invoked
    */
   navigateMainMenu(menuItem, extraParams) {
+    menuItem = 1;
     const optionsHandlers = {
       '1': this.showArrivalInfo,
       '2': this.showWeatherInfo,

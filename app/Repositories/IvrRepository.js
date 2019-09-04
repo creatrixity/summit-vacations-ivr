@@ -45,6 +45,8 @@ class IvrRepository {
       '4': this.showAssistanceInfo
     }
 
+    console.log({ menuItem })
+
     return menuItem in optionsHandlers ?
             optionsHandlers[menuItem](extraParams):
             this.showWelcomeGreeting()

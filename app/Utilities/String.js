@@ -1,4 +1,4 @@
-const pickQueryStringValue = (queryString, key) => {
+const pickQueryStringValue = (key, queryString) => {
   const urlString = `http://example.com/q?${queryString}`
   
   return urlString.searchParams.get(key)

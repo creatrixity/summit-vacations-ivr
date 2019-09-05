@@ -3,7 +3,7 @@
 const IvrRepository = require('../app/Repositories/IvrRepository')
 
 exports.handler = (event, context, callback) => {
-  const { Digits } = event.queryStringParameters
+  const { Digits } = JSON.parse(decodeURI(event.body))
   const ivrRepo = new IvrRepository()
   const body = ivrRepo.navigateActivitySuggestions(parseInt(Digits))
 

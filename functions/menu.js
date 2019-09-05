@@ -1,7 +1,7 @@
 'use strict'
 
 const IvrRepository = require('../app/Repositories/IvrRepository')
-const { pickQueryStringValue } = require('../app/Utilities/String')
+// const { pickQueryStringValue } = require('../app/Utilities/String')
 
 exports.handler = (event, context, callback) => {
   const params = event.body

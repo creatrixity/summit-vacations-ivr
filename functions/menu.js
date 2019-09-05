@@ -5,16 +5,16 @@ const { pickQueryStringValue } = require('../app/Utilities/String')
 
 exports.handler = (event, context, callback) => {
   const params = JSON.stringify(event.body)
-  const Digits = pickQueryStringValue('Digits', params)
-  const To = pickQueryStringValue('To', params)
+  // const Digits = pickQueryStringValue('Digits', params)
+  // const To = pickQueryStringValue('To', params)
 
   console.log({ body: params, params: JSON.stringify(event.queryParameters) })
 
   const ivrRepo = new IvrRepository()
-  const body = ivrRepo.navigateMainMenu(parseInt(Digits), { callerPhone: To })
+  // const body = ivrRepo.navigateMainMenu(parseInt(Digits), { callerPhone: To })
 
   return callback(null, {
     statusCode: 200,
-    body
+    body: 'Hello'
   })
 }

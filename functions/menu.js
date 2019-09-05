@@ -4,7 +4,7 @@ const IvrRepository = require('../app/Repositories/IvrRepository')
 // const { pickQueryStringValue } = require('../app/Utilities/String')
 
 exports.handler = (event, context, callback) => {
-  const params = event.body
+  const params = JSON.parse(decodeURI(event.body))
   // const Digits = pickQueryStringValue('Digits', params)
   // const To = pickQueryStringValue('To', params)
 

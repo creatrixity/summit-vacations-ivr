@@ -5,7 +5,7 @@
   "description": "The fullstack application boilerplate for Adonisjs",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run start:lambda",
     "rm:rf": "rm -rf lambda",
     "build:lambda": "netlify-lambda build functions",
     "start:lambda": "netlify-lambda serve functions",

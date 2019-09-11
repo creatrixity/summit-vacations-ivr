@@ -1,14 +1,16 @@
-'use strict'
+'use strict';
 
-const IvrRepository = require('../app/Repositories/IvrRepository')
+const IvrRepository = require('../app/Repositories/IvrRepository');
 
 exports.handler = (event, context, callback) => {
-  const { Digits } = JSON.parse(decodeURI(event.body))
-  const ivrRepo = new IvrRepository()
-  const body = ivrRepo.navigateActivitySuggestions(parseInt(Digits))
+  const { Digits, To } = JSON.parse(decodeURI(event.body));
+  const ivrRepo = new IvrRepository();
+  const body = ivrRepo.navigateActivitySuggestions(parseInt(Digits), {
+    callerPhone: To
+  });
 
   return callback(null, {
     statusCode: 200,
     body
-  })
-}
+  });
+};
